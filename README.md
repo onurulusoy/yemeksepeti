@@ -17,11 +17,13 @@ How to Run:
   
   - The command should be executed under root folder of the project => ~\yemeksepeti\
   - Test suite can be executed by following command on terminal:
+  - 
     **~\yemeksepeti>mvn clean test -DbrowserName="browserName"**
     
     **e.g.** mvn clean test -DbrowserName="chrome"
   
   - Also if you want to execute only one feature, command should be:
+  - 
     **~\yemeksepeti>mvn clean test -DbrowserName="@browserName" -Dcucumber.filter.tags="@featureTag"**
     
     **e.g.** mvn clean test -DbrowserName="chrome" -Dcucumber.filter.tags="@Login"
@@ -32,5 +34,8 @@ How to Run:
  
  After Execution:
  
-  - There will be 2 reports under **~\yemeksepeti\test output\PdfReport\** and ~\yemeksepeti\test output\.
+  - There will be 2 reports under:
+   
+   **~\yemeksepeti\test output\PdfReport\**
+   **~\yemeksepeti\test output\**
  
