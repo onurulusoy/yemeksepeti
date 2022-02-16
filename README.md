@@ -26,5 +26,6 @@ How to Run:
     
     **e.g.** mvn clean test -DbrowserName="chrome" -Dcucumber.filter.tags="@Login"
  
- Supported browserName: chrome, firefox, safari
- Supported featureTag: Login, Favourites
+ **Supported browserName:** chrome, firefox, safari
+ 
+ **Supported featureTag:** Login, Favourites
