@@ -75,15 +75,9 @@ public class YemekSepetiMainPage extends BasePage {
     }
 
     public YemekSepetiMainPage observeUserInfo(){
-        try {
-            isDisplay(userInfo);
-        } catch (Exception e) {
-            System.out.println("there may be a popup");
-            if (!isNotDisplay(modalCloseButton)) {
-                click(modalCloseButton);
-            }
-            isDisplay(userInfo);
-        }
+        sleep(2);
+        closeModal();
+        isDisplay(userInfo);
         return this;
     }
 
@@ -135,15 +129,8 @@ public class YemekSepetiMainPage extends BasePage {
     }
 
     public YemekSepetiMainPage openTab(String tabName) {
-        try {
-            click(tabName, tabType);
-        } catch (Exception e) {
-            System.out.println("there may be a popup");
-            if (!isNotDisplay(modalCloseButton)) {
-                click(modalCloseButton);
-            }
-            click(tabName, tabType);
-        }
+
+        click(tabName, tabType);
         return this;
     }
 
