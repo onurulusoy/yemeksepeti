@@ -16,7 +16,7 @@ Prerequisites:
 How to Run:
   
   - The command should be executed under root of the project => ~\yemeksepeti\
-  - The suite can be execute by following command on terminal:
+  - Test suite can be execute by following command on terminal:
     **~\yemeksepeti>mvn clean test -DbrowserName="browserName"**
     
     **e.g.** mvn clean test -DbrowserName="chrome"
