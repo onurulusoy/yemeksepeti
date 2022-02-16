@@ -8,7 +8,6 @@ import org.testng.annotations.DataProvider;
         plugin = {"pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         glue = { "StepDefinitions" },
-        //tags = "@Favourites",
         features = { "src/test/resources" }
         )
 
