@@ -75,6 +75,8 @@ public class YemekSepetiMainPage extends BasePage {
     }
 
     public YemekSepetiMainPage observeUserInfo(){
+        sleep(2);
+        closeModal();
         isDisplay(userInfo);
         return this;
     }
@@ -127,6 +129,7 @@ public class YemekSepetiMainPage extends BasePage {
     }
 
     public YemekSepetiMainPage openTab(String tabName) {
+
         click(tabName, tabType);
         return this;
     }
@@ -157,10 +160,18 @@ public class YemekSepetiMainPage extends BasePage {
             favouriteRestaurants.add(restaurants.get(i).getText());
             click(restaurants.get(i));
             isDisplay(restaurantDetails);
-            clickIfDisplayed(restaurantPopupClose);
-            clickIfDisplayed(jokerModalClose);
-            if (!isNotDisplay(addFavouritesActive)) {
+            try {
                 click(addToFavs, favouritesType);
+            } catch (Exception e) {
+                System.out.println("the restaurant already is in favs or there is a popup");
+                if (!isNotDisplay(restaurantPopupClose)) {
+                    click(restaurantPopupClose);
+                } else if (!isNotDisplay(jokerModalClose)) {
+                    click(jokerModalClose);
+                } else {
+                    System.out.println("the restaurant is already in favs");
+                }
+
             }
             isDisplay(removeFromFavs, favouritesType);
             sleep(2);
@@ -182,9 +193,16 @@ public class YemekSepetiMainPage extends BasePage {
             List<WebElement> mainPageFavsList = driver.findElements(mainPageFavs);
             click(mainPageFavsList.get(0));
             isDisplay(restaurantDetails);
-            clickIfDisplayed(restaurantPopupClose);
-            clickIfDisplayed(jokerModalClose);
-            click(removeFromFavs, favouritesType);
+            try {
+                click(removeFromFavs, favouritesType);
+            } catch (Exception e) {
+                System.out.println("there is a popup");
+                if (!isNotDisplay(restaurantPopupClose)) {
+                    click(restaurantPopupClose);
+                } else if (!isNotDisplay(jokerModalClose)) {
+                    click(jokerModalClose);
+                }
+            }
             isDisplay(addToFavs, favouritesType);
             sleep(2);
             driver.navigate().back();
