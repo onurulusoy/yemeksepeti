@@ -35,7 +35,7 @@ How to Run:
  After Execution:
  
   - There will be 2 reports under:
-   
-   **~\yemeksepeti\test output\PdfReport\**
-   **~\yemeksepeti\test output\**
+  
+      ~\yemeksepeti\test output\PdfReport\
+      ~\yemeksepeti\test output\
  
