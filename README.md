@@ -32,5 +32,5 @@ How to Run:
  
  After Execution:
  
-  - There will be 2 reports under **~\yemeksepeti\test output\PdfReport\** and **~\yemeksepeti\test output\**.
+  - There will be 2 reports under **~\yemeksepeti\test output\PdfReport\** and ~\yemeksepeti\test output\.
  
