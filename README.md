@@ -10,13 +10,13 @@ Prerequisites:
 
   - Maven version 3.8.3 or higher
   - Java 8 (JDK 1.8) or higher
-  - Maven and Java should be added to path
+  - Maven should be added to path
   - JAVA_HOME should be set
 
 How to Run:
   
-  - The command should be executed under root of the project => ~\yemeksepeti\
-  - Test suite can be execute by following command on terminal:
+  - The command should be executed under root folder of the project => ~\yemeksepeti\
+  - Test suite can be executed by following command on terminal:
     **~\yemeksepeti>mvn clean test -DbrowserName="browserName"**
     
     **e.g.** mvn clean test -DbrowserName="chrome"
@@ -29,3 +29,8 @@ How to Run:
  **Supported browserName:** chrome, firefox, safari
  
  **Supported featureTag:** Login, Favourites
+ 
+ After Execution:
+ 
+  - There will be 2 reports under **~\yemeksepeti\test output\PdfReport\** and **~\yemeksepeti\test output\**.
+ 
