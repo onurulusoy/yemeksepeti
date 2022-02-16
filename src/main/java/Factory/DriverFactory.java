@@ -23,9 +23,6 @@ public class DriverFactory {
         } else if (browserName.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver());
-        } else if (browserName.equals("opera")) {
-            WebDriverManager.operadriver().setup();
-            tlDriver.set(new OperaDriver());
         } else {
             System.out.println("Please write the correct browser name");
         }
