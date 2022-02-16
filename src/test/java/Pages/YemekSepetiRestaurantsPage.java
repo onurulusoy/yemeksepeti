@@ -15,8 +15,8 @@ public class YemekSepetiRestaurantsPage extends BasePage {
 
     private By restaurantName = By.className("restaurantName");
     private By restaurantDetails = By.className("restaurantDetailColumn");
-    private By addFavouritesActive = By.cssSelector("div.social-button.favorite-button.add.active");
     private By jokerModalClose = By.id("cboxClose");
+    private By restaurantPopupClose = By.className("close-alternative-popup");
 
 
     public <T> List<String> addRestaurantsToFavourites(int restaurantCount) {
@@ -26,12 +26,29 @@ public class YemekSepetiRestaurantsPage extends BasePage {
         for (int i = 0; i < restaurantCount; i++) {
             List<WebElement> restaurants = driver.findElements(restaurantName);
             favouriteRestaurants.add(restaurants.get(i).getText());
-            clickIfDisplayed(jokerModalClose);
-            click(restaurants.get(i));
+
+            try {
+                click(restaurants.get(i));
+            } catch (Exception e) {
+                if(!isNotDisplay(jokerModalClose)) {
+                    System.out.println("there is a popup. closing it...");
+                    click(jokerModalClose);
+                }
+                click(restaurants.get(i));
+            }
             isDisplay(restaurantDetails);
-            clickIfDisplayed(jokerModalClose);
-            if (!isNotDisplay(addFavouritesActive)) {
+
+            try {
                 click(yemekSepetiMainPage.addToFavs, yemekSepetiMainPage.favouritesType);
+            } catch (Exception e) {
+                System.out.println("the restaurant already is in favs or there is a popup");
+                if (!isNotDisplay(restaurantPopupClose)) {
+                    click(restaurantPopupClose);
+                } else if (!isNotDisplay(jokerModalClose)) {
+                    click(jokerModalClose);
+                } else {
+                    System.out.println("the restaurant is already in favs");
+                }
             }
             isDisplay(yemekSepetiMainPage.removeFromFavs, yemekSepetiMainPage.favouritesType);
             sleep(2);
