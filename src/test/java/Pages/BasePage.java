@@ -29,7 +29,7 @@ public class BasePage {
 
     public <T> void click(T p)  {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(15))
+                .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(ElementNotVisibleException.class)
                 .ignoring(NoSuchElementException.class)
@@ -87,7 +87,7 @@ public class BasePage {
 
     public <P, T> void type(P element, T entry) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(15))
+                .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(ElementNotVisibleException.class)
                 .ignoring(NoSuchElementException.class)
@@ -140,17 +140,11 @@ public class BasePage {
     }
 
     public <T> boolean isNotDisplay(T p) {
-        return driver.findElements((By) p).isEmpty();
+        return driver.findElements((By) p).size() <= 0;
     }
 
     public <T, P> void isDisplay(T element, P type)  {
         driver.findElement(By.xpath("//" + type + "[text()='" + element + "']"));
-    }
-
-    public void clickIfDisplayed(By button) {
-        if(!isNotDisplay(button)) {
-            click(button);
-        }
     }
 
 
